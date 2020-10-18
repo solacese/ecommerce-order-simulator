@@ -10,7 +10,7 @@ This simulator publishes order objects based off the [Shopify order object](http
 
 # Getting started
 
-Follow the instructions in (.EDIT-ME.env)[.EDIT-ME.env] and then run:
+Follow the instructions in [.EDIT-ME.env](.EDIT-ME.env) and then run:
 
 ```
 git clone git@github.com:solacese/ecommerce-order-simulator.git
