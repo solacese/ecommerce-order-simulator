@@ -2,7 +2,7 @@
 
 This simulator publishes order objects based off the [Shopify order object](https://shopify.dev/docs/themes/liquid/reference/objects/order) via MQTT on an interval.
 
-Solace SE Event Portal link: [https://console.solace.cloud/designer/domains/wn33ovmyqnp?domainName=Ecommerce](https://console.solace.cloud/designer/domains/wn33ovmyqnp?domainName=Ecommerce)
+Solace SE Event Portal link: [](https://console.solace.cloud/designer/domains/wn33ovmyqnp?domainName=Ecommerce)
 
 # Table of contents
 
@@ -32,7 +32,7 @@ docker run --env-file ./.env ecommerce-simulator
 
 # Topic structure
 
-`ecommerce-order-simulator/orders/{order_source}/{name}/{fulfillment_status}/{financial_status}/{cancelled_status}`
+`ecomm-order-simulator/orders/{order_source}/{name}/{fulfillment_status}/{financial_status}/{cancelled_status}`
 
 # Payload structure
 

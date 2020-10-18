@@ -7,7 +7,7 @@ import produce from "immer";
 import faker from "faker";
 import { orderSources, cancelReasons, financialStatus, fulfillmentStatus, posIds, shipping } from "./data";
 
-const rootTopic = "order-simulator";
+const rootTopic = "ecomm-order-simulator";
 
 export function createOrderSimulator(publish, intervalMs) {
   let intervalId;
@@ -54,8 +54,8 @@ function generateMockOrderEvent(orderNumber) {
   let tax_price = (total_price * salesTaxRate).toPrecision(2);
 
   return {
-    // {root}/orders/{source}/{fulfillment_status}/{financial_status}/{cancelled_status}
-    topic: `${rootTopic}/orders/${orderSource}/${name}${fulfillment_status}/${financial_status}/${
+    // {root}/orders/{source}/{name}/{fulfillment_status}/{financial_status}/{cancelled_status}
+    topic: `${rootTopic}/orders/${orderSource}/${name}/${fulfillment_status}/${financial_status}/${
       cancelled ? "cancelled" : "open"
     }`,
     payload: {
