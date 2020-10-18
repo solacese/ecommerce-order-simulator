@@ -2,6 +2,8 @@
 
 This simulator publishes order objects based off the [Shopify order object](https://shopify.dev/docs/themes/liquid/reference/objects/order) via MQTT on an interval.
 
+Solace SE Event Portal link: [https://console.solace.cloud/designer/domains/wn33ovmyqnp?domainName=Ecommerce](https://console.solace.cloud/designer/domains/wn33ovmyqnp?domainName=Ecommerce)
+
 # Table of contents
 
 - [Getting started](#getting-started)
@@ -32,9 +34,9 @@ docker run --env-file ./.env ecommerce-simulator
 
 `ecommerce-order-simulator/orders/{order_source}/{name}/{fulfillment_status}/{financial_status}/{cancelled_status}`
 
-[]()
-
 # Payload structure
+
+[schema.json](schema.json) is the JSON schema implementation for the order event this simulator publishes. Below are the same properties with some descriptions and links to the corresponding Shopify order object docs.
 
 > **Note**: Not all the Shopify order object properties are implemented, e.g. cancel_reason_label, and some are implemented in an incomplete fashion, e.g. customer is just a string instead of an object.
 
