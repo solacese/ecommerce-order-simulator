@@ -1,0 +1,28 @@
+{
+  "name": "package-scan-simulator",
+  "version": "1.0.0",
+  "description": "publishes a feed of mock package scan events",
+  "main": "src/index.js",
+  "author": "Andrew Roberts",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src -d dist --presets @babel/preset-env",
+    "dev": "nodemon --watch src --exec babel-node src/index.js",
+    "start-dev": "babel-node src/index.js",
+    "start": "node dist/index.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/node": "^7.8.4",
+    "@babel/preset-env": "^7.8.3",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "core-js": "^3.6.4",
+    "faker": "^5.1.0",
+    "immer": "^7.0.9",
+    "mqtt": "^3.0.0",
+    "regenerator-runtime": "^0.13.3"
+  }
+}
