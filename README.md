@@ -1,6 +1,6 @@
-# ecomm-order-simulator
+# ecommerce-order-simulator
 
-This simulator publishes order objects based off the [Shopify order object] (https://shopify.dev/docs/themes/liquid/reference/objects/order) via MQTT on an interval.
+This simulator publishes order objects based off the [Shopify order object](https://shopify.dev/docs/themes/liquid/reference/objects/order) via MQTT on an interval.
 
 # Table of contents
 
@@ -20,9 +20,9 @@ set -a
 source .env
 set +a
 
-docker build . -t ecomm-simulator
+docker build . -t ecommerce-simulator
 
-docker run --env-file ./.env ecomm-simulator
+docker run --env-file ./.env ecommerce-simulator
 ```
 
 > :warning: Did you rename the file to .env and fill out the connection details? If you don't, your run command will fail with a "Failed to connect" error from the client.
