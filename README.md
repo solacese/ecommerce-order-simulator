@@ -8,7 +8,7 @@ This simulator publishes order objects based off the [Shopify order object](http
 - [Payload structure](#payload-structure)
 - [Resources](#resources)
 
-## Getting started
+# Getting started
 
 Follow the instructions in (.EDIT-ME.env)[.EDIT-ME.env] and then run:
 
@@ -27,7 +27,7 @@ docker run --env-file ./.env ecommerce-simulator
 
 > :warning: Did you rename the file to .env and fill out the connection details? If you don't, your run command will fail with a "Failed to connect" error from the client.
 
-## Payload structure
+# Payload structure
 
 > **Note**: Not all the Shopify order object properties are implemented, e.g. cancel_reason_label, and some are implemented in an incomplete fashion, e.g. customer is just a string instead of an object.
 
@@ -187,7 +187,7 @@ The total price of an order.
 
 https://shopify.dev/docs/themes/liquid/reference/objects/order#order-total_price
 
-## Resources
+# Resources
 
 For more information try these resources:
 
