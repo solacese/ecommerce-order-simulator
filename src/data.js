@@ -1,7 +1,7 @@
 // data.js
 // constants to help generate realistic looking mock data
 
-export const orderSources = ["ECommerce", "Shopify"];
+export const orderSources = ["ecommerce", "shopify_us", "shopify_ca"];
 
 export const cancelReasons = ["items_unavailable", "fraudulent_order", "customer_change"];
 
@@ -21,15 +21,15 @@ export const posIds = ["POS-1", "POS-2", "POS-3", "POS-4", "POS-5"];
 
 export const shipping = [
   {
-    method: "flat-rate",
+    method: "flat_rate",
     price: "10.00",
   },
   {
-    method: "priority-mail",
+    method: "priority_mail",
     price: "25.00",
   },
   {
-    method: "home-delivery",
+    method: "home_delivery",
     price: "120.00",
   },
 ];

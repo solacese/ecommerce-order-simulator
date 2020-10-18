@@ -15,7 +15,7 @@ export function createOrderSimulator(publish, intervalMs) {
 
   function start() {
     intervalId = setInterval(() => {
-      let mockOrderPlacedEvent = generateMockOrderPlacedEvent(getCurrentOrderNumber());
+      let mockOrderPlacedEvent = generateMockOrderEvent(getCurrentOrderNumber());
       publish(mockOrderPlacedEvent.topic, mockOrderPlacedEvent.payload, { qos: 1 });
       incrementOrderNumber();
     }, intervalMs);
@@ -39,19 +39,25 @@ export function createOrderSimulator(publish, intervalMs) {
   });
 }
 
-function generateMockOrderPlacedEvent(orderNumber) {
+function generateMockOrderEvent(orderNumber) {
   let orderSource = orderSources[faker.random.number(orderSources.length - 1)];
   let isPosOrder = faker.random.boolean();
   let orderNamePrefix = isPosOrder ? posIds[faker.random.number(posIds.length - 1)] : "#";
+  let name = `${orderNamePrefix}-${orderNumber}`;
   let cancelled = faker.random.boolean();
-  let lineItems = new Array(3).fill(faker.finance.account());
+  let financial_status = financialStatus[faker.random.number(orderSources.length - 1)];
+  let fulfillment_status = fulfillmentStatus[faker.random.number(orderSources.length - 1)];
+  let line_items = new Array(3).fill(faker.finance.account());
   let shippingOption = shipping[faker.random.number(shipping.length - 1)];
   let total_price = faker.finance.amount();
   const salesTaxRate = 0.09;
   let tax_price = (total_price * salesTaxRate).toPrecision(2);
 
   return {
-    topic: `${rootTopic}/orders/${orderSource}/`, // root/orders/{source}/{customer}/
+    // {root}/orders/{source}/{fulfillment_status}/{financial_status}/{cancelled_status}
+    topic: `${rootTopic}/orders/${orderSource}/${name}${fulfillment_status}/${financial_status}/${
+      cancelled ? "cancelled" : "open"
+    }`,
     payload: {
       billing_address: faker.address.streetAddress(),
       cancelled,
@@ -61,11 +67,11 @@ function generateMockOrderPlacedEvent(orderNumber) {
       customer: faker.finance.account(),
       customer_name: faker.name.findName(),
       email: faker.internet.email(),
-      financial_status: financialStatus[faker.random.number(orderSources.length - 1)],
-      fulfillment_status: fulfillmentStatus[faker.random.number(orderSources.length - 1)],
-      line_items: lineItems, // todo
+      financial_status,
+      fulfillment_status,
+      line_items,
       location: isPosOrder ? faker.address.streetAddress(true) : "online",
-      name: `${orderNamePrefix}-${orderNumber}`,
+      name,
       order_number: orderNumber,
       phone: faker.phone.phoneNumber(),
       shipping_address: faker.address.streetAddress(true),

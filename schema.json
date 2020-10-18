@@ -1,0 +1,94 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "properties": {
+      "billing_address": {
+          "type": "string"
+      },
+      "cancelled": {
+          "type": "boolean"
+      },
+      "cancelled_at": {
+          "type": "string"
+      },
+      "cancel_reason": {
+          "type": "string"
+      },
+      "created_at": {
+          "type": "string"
+      },
+      "customer": {
+          "type": "string"
+      },
+      "customer_name": {
+          "type": "string"
+      },
+      "email": {
+          "type": "string"
+      },
+      "financial_status": {
+          "type": "string"
+      },
+      "fulfillment_status": {
+          "type": "string"
+      },
+      "line_items": {
+          "type": "array",
+          "items": {
+              "type": "string"
+          }
+      },
+      "location": {
+          "type": "string"
+      },
+      "name": {
+          "type": "string"
+      },
+      "order_number": {
+          "type": "string"
+      },
+      "phone": {
+          "type": "string"
+      },
+      "shipping_address": {
+          "type": "string"
+      },
+      "shipping_methods": {
+          "type": "string"
+      },
+      "shipping_price": {
+          "type": "string"
+      },
+      "tax_price": {
+          "type": "number"
+      },
+      "total_price": {
+          "type": "number"
+      }
+  },
+  "required": [
+      "billing_address",
+      "cancelled",
+      "cancelled_at",
+      "cancel_reason",
+      "created_at",
+      "customer",
+      "customer_name",
+      "email",
+      "financial_status",
+      "fulfillment_status",
+      "line_items",
+      "location",
+      "name",
+      "order_number",
+      "phone",
+      "shipping_address",
+      "shipping_methods",
+      "shipping_price",
+      "tax_price",
+      "total_price"
+  ]
+}
