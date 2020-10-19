@@ -45,8 +45,8 @@ function generateMockOrderEvent(orderNumber) {
   let orderNamePrefix = isPosOrder ? posIds[faker.random.number(posIds.length - 1)] : "#";
   let name = `${orderNamePrefix}-${orderNumber}`;
   let cancelled = faker.random.boolean();
-  let financial_status = financialStatus[faker.random.number(orderSources.length - 1)];
-  let fulfillment_status = fulfillmentStatus[faker.random.number(orderSources.length - 1)];
+  let financial_status = financialStatus[faker.random.number(financialStatus.length - 1)];
+  let fulfillment_status = fulfillmentStatus[faker.random.number(fulfillmentStatus.length - 1)];
   let line_items = new Array(3).fill(faker.finance.account());
   let shippingOption = shipping[faker.random.number(shipping.length - 1)];
   let total_price = faker.finance.amount();
@@ -62,7 +62,7 @@ function generateMockOrderEvent(orderNumber) {
       billing_address: faker.address.streetAddress(),
       cancelled,
       cancelled_at: cancelled ? new Date().toUTCString() : "",
-      cancel_reason: cancelled ? cancelReasons[faker.random.number(orderSources.length - 1)] : "",
+      cancel_reason: cancelled ? cancelReasons[faker.random.number(cancelReasons.length - 1)] : "",
       created_at: new Date().toUTCString(),
       customer: faker.finance.account(),
       customer_name: faker.name.findName(),
